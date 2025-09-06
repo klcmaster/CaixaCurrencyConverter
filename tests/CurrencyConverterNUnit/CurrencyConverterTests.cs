@@ -44,5 +44,16 @@ namespace CurrencyConverterMsTest
             //Assert
             Assert.That(money1.Amount, Is.EqualTo( result.Amount));
         }
+
+        [Test]
+        public void GivenUnexistingRate_WhenConvertingCurrency_ShouldThrowException()
+        {
+            // Arrange
+            var rateProvider = new RateProvider(new() { });
+            var converter = new CurrencyConverter.CurrencyConverter(rateProvider);
+            Money money = new Money(1, Currency.AED);
+            // Act & Assert
+            Assert.Throws<InvalidOperationException>(() => converter.Convert(money, Currency.BAM));
+        }
     }
 }

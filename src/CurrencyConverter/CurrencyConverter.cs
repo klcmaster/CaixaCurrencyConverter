@@ -28,7 +28,7 @@ namespace CurrencyConverter
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new InvalidOperationException(ex.Message);
             }
         }
     }

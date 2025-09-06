@@ -30,4 +30,5 @@ public sealed class RateProviderUnitTests
 
         Assert.ThrowsException<InvalidOperationException>(() => sut.GetRate(Currency.AED, Currency.BAM));
     }
+
 }
